@@ -1,6 +1,7 @@
 <?php
 ##sesion siempre es la priera imstruccion de php caso contrario no funciona
 include_once("./controlacceso.php");
+
 print_r($_POST);
 $nombre = $_POST["nombre"];
 $clave = $_POST["clave"];

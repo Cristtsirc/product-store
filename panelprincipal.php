@@ -11,5 +11,6 @@ include_once("./controlacceso.php");
 </head>
 <body>
     <h1>PANEL PRINCIPAL</h1>
+        <p>Bienvenido usuario: <?php ?> </p>
 </body>
 </html>
