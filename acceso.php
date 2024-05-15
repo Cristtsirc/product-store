@@ -1,24 +1,27 @@
 <?php
-##sesion siempre es la priera imstruccion de php caso contrario no funciona
+//print_r($_POST);
+//$nombre = $_POST["nombre"];
+//$clave = $_POST["clave"];
 include_once("./controlacceso.php");
-
-print_r($_POST);
-$nombre = $_POST["nombre"];
-$clave = $_POST["clave"];
 $preferencias = isset($_POST["chk_preferencias"]) ? $_POST["chk_preferencias"] :"";
 
-if ($nombre == "" && $clave == "") {
+if ($_POST["nombre"] == "" && $_POST["clave"] == "") {
     header("Location: index.php");
-    exit();
 }
 
-if ($preferencias!="") {
+if ($_POST["nombre"] != "" && $_POST["clave"] != "") {
+    $_SESSION["nombre"] = $_POST["nombre"];
+    $_SESSION["clave"] = $_POST["clave"];
+    header("Location: panelprincipal.php");
+}
+
+if ($preferencias !="") { //Marca recordarme
     ##Crear cookie
-    setcookie("c_nombre", $nombre,0);
-    setcookie("c_clave", $clave,0);
-    setcookie("c_preferencias", $preferencias,0);
+    setcookie("c_nombre", $nombre);
+    setcookie("c_clave", $clave);
+    setcookie("c_preferencias", $preferencias);
     
-} else {
+} else { //Si no marco el recordarme
      ##SI existen las borro
      if (isset($_COOKIE)) {
         foreach ($_COOKIE as $clave => $valor) {
@@ -27,6 +30,8 @@ if ($preferencias!="") {
         }
     }
 }
-header("Location: panelprincipal.php");
+
+
+
 
 ?>

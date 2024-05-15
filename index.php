@@ -4,9 +4,9 @@ $clave ="";
 $preferencias ="";
 
     if (isset($_COOKIE["c_preferencias"]) && $_COOKIE["c_preferencias"]!="") {
-        $nombre = $_COOKIE["c_nombre"];
-        $clave = $_COOKIE["c_clave"];
         $preferencias = true;
+        $nombre = isset($_COOKIE['c_nombre']) ? $_COOKIE['c_nombre']: "";
+        $clave = isset($_COOKIE['c_clave']) ? $_COOKIE['c_clave']: "";
     }
 ?>
 
@@ -35,7 +35,5 @@ $preferencias ="";
             <input type="submit" value="Enviar">
         </form>
     </fieldset>
-
 </body>
-
 </html>
