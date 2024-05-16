@@ -1,10 +1,12 @@
 <?php 
 include_once("./controlacceso.php");
 $seleccion = "";
+$idioma = "";
 #Obtnego el param "borrar"
 if(isset($_COOKIE['idioma'])){
-    setcookie('idioma', (isset($_GET['idioma']) ? $_GET['idioma'] : $_COOKIE['idioma']));
-    $seleccion = $_COOKIE["idioma"];
+    $idioma = isset($_GET['idioma']) ? $_GET['idioma'] : $_COOKIE['idioma'];
+    setcookie('idioma', $idioma);
+    $seleccion = $idioma;
 }
 else{
     $seleccion = $_GET["idioma"];
