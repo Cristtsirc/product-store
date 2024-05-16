@@ -2,11 +2,14 @@
 $nombre ="";
 $clave ="";
 $preferencias ="";
-
+$idioma = "es";
     if (isset($_COOKIE["c_preferencias"]) && $_COOKIE["c_preferencias"]!="") {
         $preferencias = true;
         $nombre = isset($_COOKIE['c_nombre']) ? $_COOKIE['c_nombre']: "";
         $clave = isset($_COOKIE['c_clave']) ? $_COOKIE['c_clave']: "";
+        if(isset($_COOKIE['idioma'])){
+            $idioma = $_COOKIE['idioma'];
+        }
     }
 ?>
 
@@ -22,7 +25,7 @@ $preferencias ="";
 <body>
     <fieldset>
         <h1>LOGIN</h1>
-        <form action="acceso.php" method="POST">
+        <form action="acceso.php?idioma=<?php echo $idioma;?>" method="POST">
             <br>
             <label for="txUsuario"></label> Usuario*: <br>
             <input type="text" name="nombre" value="<?php echo $nombre;?>" >
