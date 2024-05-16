@@ -11,7 +11,7 @@ if ($_POST["nombre"] == "" && $_POST["clave"] == "" || $_POST["clave"] != "") {
 if ($_POST["nombre"] != "" && $_POST["clave"] != "") {
     $_SESSION["nombre"] = $_POST["nombre"];
     $_SESSION["clave"] = $_POST["clave"];
-    header("Location: panelprincipal.php");
+    header("Location: panelprincipal.php?idioma=es");
 }
 if ($preferencias !="") { //Marca recordarme
     ##Crear cookie
