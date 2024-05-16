@@ -38,5 +38,3 @@ $welcome_string = $seleccion == "es"? "Bienvenido usuario: ": "Welcome user: ";
 
 </body>
 </html>
-
-Mensaje #chat-general
